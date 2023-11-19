@@ -25,20 +25,22 @@ public class Vista {
             String contraseñaUsuario = scn.nextLine();
             c.iniciarSesion(nombreUsuario, contraseñaUsuario);
             while (true) {
-                    System.out.println("1. Agregar material\n2. Modo préstamo\n0. Salir del programa"); 
+                    System.out.println("1. Agregar material\n2. Modo préstamo\n3. Mi perfil\n0. Salir del programa"); 
                     System.out.print("Ingresa el número de opción: ");
                     int opcion = scn.nextInt();
                     scn = new Scanner(System.in);
                     switch (opcion) {
                         case 1:
-                        System.out.print("Ingresa el tipo de material (Libro o revista): ");
+                        System.out.print("\nIngresa el tipo de material (Libro o revista): ");
                         String tipoMaterial = scn.nextLine();
                         c.agregarMaterial(nombreUsuario, contraseñaUsuario, tipoMaterial);
                         break;
                         case 2:
+                        c.creacionCSVprestamos();
                         c.modoPrestamo(nombreUsuario, contraseñaUsuario);
                         break;
                         case 3:
+                        c.modoPerfil(nombreUsuario, contraseñaUsuario);
                         break;
                         case 4:
                         break;
